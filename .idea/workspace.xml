@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e40fdb71-6ebe-4ba1-91ac-50ce62cc8180" name="Changes" comment="" />
+    <list default="true" id="e40fdb71-6ebe-4ba1-91ac-50ce62cc8180" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NetworkingALevel.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Yassin_Client/Yassin_Client.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Yassin_Server/Yassin_Server.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,8 +32,10 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "openjdk-20",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -36,8 +47,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716215707180</updated>
-      <workItem from="1716215708211" duration="1000" />
+      <workItem from="1716215708211" duration="200000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/NetworkingALevel.iml" filepath="$PROJECT_DIR$/NetworkingALevel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yassin_Client/Yassin_Client.iml" filepath="$PROJECT_DIR$/Yassin_Client/Yassin_Client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yassin_Server/Yassin_Server.iml" filepath="$PROJECT_DIR$/Yassin_Server/Yassin_Server.iml" />
     </modules>
   </component>
 </project>

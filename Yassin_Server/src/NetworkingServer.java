@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.*;
 
 public class NetworkingServer {
@@ -18,6 +21,31 @@ public class NetworkingServer {
             // Listens and waits until a connection is made
             System.out.println("Waiting for a request...");
             Socket client = server.accept();
+
+            // Prints out that a connect request has been accepted and prints out the clients host address and port
+            System.out.println("Connection has been made.");
+            String clientHost = client.getInetAddress().getHostAddress();
+            System.out.println("Clients host: " + clientHost + "\nClient port: " + client.getPort());
+
+            // Read data from client
+            InputStream clientInput = client.getInputStream();
+            BufferedReader br = new BufferedReader(new InputStreamReader(clientInput));
+            String response = responseMessage(br.readLine());
         }
+    }
+
+    public static String responseMessage(String clientMessage) {
+        if (clientMessage.contains("+")) {
+
+        } else if (clientMessage.contains("-")) {
+
+        } else if (clientMessage.contains("*")) {
+
+        } else if (clientMessage.contains("/")) {
+
+        } else {
+
+        }
+        return "";
     }
 }

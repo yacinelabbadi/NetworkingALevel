@@ -56,9 +56,9 @@ public class NetworkingServer {
     // Uses indexOf to find the operation sign position and takes the numbers before and after it
     // and uses corresponding operation to calculate the answer and make a response
     public static String responseMessage(String clientMessage) {
-        int answer;
-        int firstNumber;
-        int secondNumber;
+        double answer;
+        double firstNumber;
+        double secondNumber;
         String response = "";
 
         try {
@@ -67,38 +67,29 @@ public class NetworkingServer {
                 clientMessage = clientMessage.replaceAll(" ", "");
                 if (clientMessage.contains("+")) {
                     operationPosition = clientMessage.indexOf("+");
-                    firstNumber = Integer.parseInt(clientMessage.substring(0, operationPosition));
-                    secondNumber = Integer.parseInt(clientMessage.substring(operationPosition));
+                    firstNumber = Double.parseDouble(clientMessage.substring(0, operationPosition));
+                    secondNumber = Double.parseDouble(clientMessage.substring(operationPosition+1));
                     answer = firstNumber + secondNumber;
 
                     response = "Summan av " + clientMessage + " är " + answer;
                 } else if (clientMessage.contains("-")) {
                     operationPosition = clientMessage.indexOf("-");
-                    System.out.println("Doing subtraction");
-                    firstNumber = Integer.parseInt(clientMessage.substring(0, operationPosition));
-                    System.out.println("First number is: " + firstNumber);
-                    secondNumber = Integer.parseInt(clientMessage.substring(operationPosition));
-                    System.out.println("Second number is: " + secondNumber);
-                    System.out.println("Subtraction: " + firstNumber + " - " + secondNumber + " = " + (firstNumber - secondNumber));
+                    firstNumber = Double.parseDouble(clientMessage.substring(0, operationPosition));
+                    secondNumber = Double.parseDouble(clientMessage.substring(operationPosition+1));
                     answer = firstNumber - secondNumber;
-                    System.out.println("Answer: " + answer);
 
                     response = "Differensen av " + clientMessage + " är " + answer;
                 } else if (clientMessage.contains("*")) {
                     operationPosition = clientMessage.indexOf("*");
-                    firstNumber = Integer.parseInt(clientMessage.substring(0, operationPosition));
-                    System.out.println("Trying to multiply3");
-                    System.out.println(clientMessage.substring(operationPosition));
-                    secondNumber = Integer.parseInt(clientMessage.substring(operationPosition+1));
-                    System.out.println("Trying to multiply4");
-
+                    firstNumber = Double.parseDouble(clientMessage.substring(0, operationPosition));
+                    secondNumber = Double.parseDouble(clientMessage.substring(operationPosition+1));
                     answer = firstNumber * secondNumber;
 
                     response = "Produkten av " + clientMessage + " är " + answer;
                 } else if (clientMessage.contains("/")) {
                     operationPosition = clientMessage.indexOf("/");
-                    firstNumber = Integer.parseInt(clientMessage.substring(0, operationPosition));
-                    secondNumber = Integer.parseInt(clientMessage.substring(operationPosition+1));
+                    firstNumber = Double.parseDouble(clientMessage.substring(0, operationPosition));
+                    secondNumber = Double.parseDouble(clientMessage.substring(operationPosition+1));
                     answer = firstNumber / secondNumber;
 
                     response = "Kvoten av " + clientMessage + " är " + answer;

@@ -34,18 +34,24 @@ public class NetworkingServer {
         }
     }
 
-    public static String responseMessage(String clientMessage) {
-        if (clientMessage.contains("+")) {
-
-        } else if (clientMessage.contains("-")) {
-
-        } else if (clientMessage.contains("*")) {
-
-        } else if (clientMessage.contains("/")) {
-
-        } else {
-
+    public static String responseMessage(String clientMessage) throws Exception {
+        String answer = "";
+        int operationPosition;
+        if (clientMessage != null) {
+            clientMessage.replaceAll(" ","");
+            if (clientMessage.contains("+")) {
+                operationPosition = clientMessage.indexOf("+");
+                int firstNumber = Integer.parseInt(clientMessage.substring(0,operationPosition));
+            } else if (clientMessage.contains("-")) {
+                operationPosition = clientMessage.indexOf("-");
+            } else if (clientMessage.contains("*")) {
+                operationPosition = clientMessage.indexOf("*");
+            } else if (clientMessage.contains("/")) {
+                operationPosition = clientMessage.indexOf("/");
+            } else {
+                System.out.println("Instructions were not followed, please try again.");
+            }
         }
-        return "";
+        return answer;
     }
 }

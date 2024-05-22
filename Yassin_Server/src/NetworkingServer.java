@@ -34,7 +34,6 @@ public class NetworkingServer {
             // Send response to client
             OutputStream clientOutput = client.getOutputStream();
             PrintWriter pw = new PrintWriter(clientOutput, true);
-            pw.println(response);
 
             // Exit and close if client send message "bye"
             if (clientMessage != null && clientMessage.equalsIgnoreCase("bye")) {
@@ -44,6 +43,8 @@ public class NetworkingServer {
                 server.close();
                 client.close();
                 break;
+            } else if (clientMessage != null) {
+                pw.println(response);
             }
         }
     }
@@ -78,14 +79,18 @@ public class NetworkingServer {
                 } else if (clientMessage.contains("*")) {
                     operationPosition = clientMessage.indexOf("*");
                     firstNumber = Integer.parseInt(clientMessage.substring(0, operationPosition));
-                    secondNumber = Integer.parseInt(clientMessage.substring(operationPosition));
+                    System.out.println("Trying to multiply3");
+                    System.out.println(clientMessage.substring(operationPosition));
+                    secondNumber = Integer.parseInt(clientMessage.substring(operationPosition+1));
+                    System.out.println("Trying to multiply4");
+
                     answer = firstNumber * secondNumber;
 
                     response = "Produkten av " + clientMessage + " är " + answer;
                 } else if (clientMessage.contains("/")) {
                     operationPosition = clientMessage.indexOf("/");
                     firstNumber = Integer.parseInt(clientMessage.substring(0, operationPosition));
-                    secondNumber = Integer.parseInt(clientMessage.substring(operationPosition));
+                    secondNumber = Integer.parseInt(clientMessage.substring(operationPosition+1));
                     answer = firstNumber / secondNumber;
 
                     response = "Kvoten av " + clientMessage + " är " + answer;

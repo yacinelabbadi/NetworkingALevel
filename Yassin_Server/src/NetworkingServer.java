@@ -38,6 +38,8 @@ public class NetworkingServer {
 
             // Exit and close if client send message "bye"
             if (clientMessage != null && clientMessage.equalsIgnoreCase("bye")) {
+                br.close();
+                pw.close();
                 server.close();
                 client.close();
                 break;
@@ -45,46 +47,53 @@ public class NetworkingServer {
         }
     }
 
-    public static String responseMessage(String clientMessage) throws Exception {
+    // Method for making calculating and making a response to the clients message
+    // Uses indexOf to find the operation sign position and takes the numbers before and after it
+    // and uses corresponding operation to calculate the answer and make a response
+    public static String responseMessage(String clientMessage) {
         int answer;
         int firstNumber;
         int secondNumber;
-
         String response = "";
-        int operationPosition;
-        if (clientMessage != null) {
-            clientMessage.replaceAll(" ","");
-            if (clientMessage.contains("+")) {
-                operationPosition = clientMessage.indexOf("+");
-                firstNumber = Integer.parseInt(clientMessage.substring(0,operationPosition));
-                secondNumber = Integer.parseInt(clientMessage.substring(operationPosition));
-                answer = firstNumber + secondNumber;
 
-                response = "Summan av " + clientMessage + " är " + answer;
-            } else if (clientMessage.contains("-")) {
-                operationPosition = clientMessage.indexOf("-");
-                firstNumber = Integer.parseInt(clientMessage.substring(0,operationPosition));
-                secondNumber = Integer.parseInt(clientMessage.substring(operationPosition));
-                answer = firstNumber - secondNumber;
+        try {
+            int operationPosition;
+            if (clientMessage != null) {
+                clientMessage.replaceAll(" ", "");
+                if (clientMessage.contains("+")) {
+                    operationPosition = clientMessage.indexOf("+");
+                    firstNumber = Integer.parseInt(clientMessage.substring(0, operationPosition));
+                    secondNumber = Integer.parseInt(clientMessage.substring(operationPosition));
+                    answer = firstNumber + secondNumber;
 
-                response = "Differensen av " + clientMessage + " är " + answer;
-            } else if (clientMessage.contains("*")) {
-                operationPosition = clientMessage.indexOf("*");
-                firstNumber = Integer.parseInt(clientMessage.substring(0,operationPosition));
-                secondNumber = Integer.parseInt(clientMessage.substring(operationPosition));
-                answer = firstNumber * secondNumber;
+                    response = "Summan av " + clientMessage + " är " + answer;
+                } else if (clientMessage.contains("-")) {
+                    operationPosition = clientMessage.indexOf("-");
+                    firstNumber = Integer.parseInt(clientMessage.substring(0, operationPosition));
+                    secondNumber = Integer.parseInt(clientMessage.substring(operationPosition));
+                    answer = firstNumber - secondNumber;
 
-                response = "Produkten av " + clientMessage + " är " + answer;
-            } else if (clientMessage.contains("/")) {
-                operationPosition = clientMessage.indexOf("/");
-                firstNumber = Integer.parseInt(clientMessage.substring(0,operationPosition));
-                secondNumber = Integer.parseInt(clientMessage.substring(operationPosition));
-                answer = firstNumber / secondNumber;
+                    response = "Differensen av " + clientMessage + " är " + answer;
+                } else if (clientMessage.contains("*")) {
+                    operationPosition = clientMessage.indexOf("*");
+                    firstNumber = Integer.parseInt(clientMessage.substring(0, operationPosition));
+                    secondNumber = Integer.parseInt(clientMessage.substring(operationPosition));
+                    answer = firstNumber * secondNumber;
 
-                response = "Kvoten av " + clientMessage + " är " + answer;
-            } else {
-                response = "Instructions were not followed, please try again.";
+                    response = "Produkten av " + clientMessage + " är " + answer;
+                } else if (clientMessage.contains("/")) {
+                    operationPosition = clientMessage.indexOf("/");
+                    firstNumber = Integer.parseInt(clientMessage.substring(0, operationPosition));
+                    secondNumber = Integer.parseInt(clientMessage.substring(operationPosition));
+                    answer = firstNumber / secondNumber;
+
+                    response = "Kvoten av " + clientMessage + " är " + answer;
+                } else {
+                    response = "Instructions were not followed, please try again.";
+                }
             }
+        } catch (Exception e) {
+            response = "Instructions were not followed, please try again";
         }
         return response;
     }

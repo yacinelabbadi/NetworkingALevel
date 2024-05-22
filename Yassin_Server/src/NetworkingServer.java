@@ -14,28 +14,31 @@ public class NetworkingServer {
         ServerSocket server = new ServerSocket(portNumber);
         System.out.println("Server socket has been created.");
 
+        // Listens and waits until a connection is made
+        System.out.println("Waiting for a request...");
+        Socket client = server.accept();
+
+        // Prints out that a connect request has been accepted and prints out the clients host address and port
+        System.out.println("Connection has been made.");
+        String clientHost = client.getInetAddress().getHostAddress();
+        System.out.println("Clients host: " + clientHost + "\nClient port: " + client.getPort());
+
+        // Create InputStream and BufferedReader to read data from client
+        InputStream clientInput = client.getInputStream();
+        BufferedReader br = new BufferedReader(new InputStreamReader(clientInput));
+
+        // Create OutputStream and PrintWriter to send data to client
+        OutputStream clientOutput = client.getOutputStream();
+        PrintWriter pw = new PrintWriter(clientOutput, true);
+
+
         // Wait for data from client and respond
         while (true) {
-            // Listens and waits until a connection is made
-            System.out.println("Waiting for a request...");
-            Socket client = server.accept();
 
-            // Prints out that a connect request has been accepted and prints out the clients host address and port
-            System.out.println("Connection has been made.");
-            String clientHost = client.getInetAddress().getHostAddress();
-            System.out.println("Clients host: " + clientHost + "\nClient port: " + client.getPort());
-
-            // Read data from client
-            InputStream clientInput = client.getInputStream();
-            BufferedReader br = new BufferedReader(new InputStreamReader(clientInput));
             String clientMessage = br.readLine();
             String response = responseMessage(clientMessage);
 
-            // Send response to client
-            OutputStream clientOutput = client.getOutputStream();
-            PrintWriter pw = new PrintWriter(clientOutput, true);
-
-            // Exit and close if client send message "bye"
+            // Exit and close if client sends message "bye"
             if (clientMessage != null && clientMessage.equalsIgnoreCase("bye")) {
                 pw.println("Closing server, goodbye");
                 br.close();
@@ -71,9 +74,14 @@ public class NetworkingServer {
                     response = "Summan av " + clientMessage + " är " + answer;
                 } else if (clientMessage.contains("-")) {
                     operationPosition = clientMessage.indexOf("-");
+                    System.out.println("Doing subtraction");
                     firstNumber = Integer.parseInt(clientMessage.substring(0, operationPosition));
+                    System.out.println("First number is: " + firstNumber);
                     secondNumber = Integer.parseInt(clientMessage.substring(operationPosition));
+                    System.out.println("Second number is: " + secondNumber);
+                    System.out.println("Subtraction: " + firstNumber + " - " + secondNumber + " = " + (firstNumber - secondNumber));
                     answer = firstNumber - secondNumber;
+                    System.out.println("Answer: " + answer);
 
                     response = "Differensen av " + clientMessage + " är " + answer;
                 } else if (clientMessage.contains("*")) {

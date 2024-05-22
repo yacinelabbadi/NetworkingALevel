@@ -59,7 +59,7 @@ public class NetworkingServer {
         try {
             int operationPosition;
             if (clientMessage != null) {
-                clientMessage.replaceAll(" ", "");
+                clientMessage = clientMessage.replaceAll(" ", "");
                 if (clientMessage.contains("+")) {
                     operationPosition = clientMessage.indexOf("+");
                     firstNumber = Integer.parseInt(clientMessage.substring(0, operationPosition));

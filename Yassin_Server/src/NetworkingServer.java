@@ -38,6 +38,7 @@ public class NetworkingServer {
 
             // Exit and close if client send message "bye"
             if (clientMessage != null && clientMessage.equalsIgnoreCase("bye")) {
+                pw.println("Closing server, goodbye");
                 br.close();
                 pw.close();
                 server.close();

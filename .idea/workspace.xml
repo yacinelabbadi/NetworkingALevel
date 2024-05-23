@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e40fdb71-6ebe-4ba1-91ac-50ce62cc8180" name="Changes" comment="Flyttade all initialisering utanför looparna för att inte göra om anslutningen om och om igen, fungerande inte förra gången jag prövade men det vara för att jag glömde att ändra på både, nu fungerar det. Håller på fixa differensen och kanske double ifall man delar t.ex 3 med 2." />
+    <list default="true" id="e40fdb71-6ebe-4ba1-91ac-50ce62cc8180" name="Changes" comment="Allt fungerar som det ska nu tror jag, det som jag är osäker på är om jag behöver minska metodlängden här också men då skulle jag behöver ta ut allt från main också, och om man måste ha if-satsen med args &gt; 0, från vad jag har sett används det bara om man skickar in det från terminalen?">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yassin_Server/src/NetworkingServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Yassin_Server/src/NetworkingServer.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,7 +72,8 @@
       <updated>1716215707180</updated>
       <workItem from="1716215708211" duration="200000" />
       <workItem from="1716215924245" duration="427000" />
-      <workItem from="1716367891648" duration="10238000" />
+      <workItem from="1716367891648" duration="11169000" />
+      <workItem from="1716480607290" duration="728000" />
     </task>
     <task id="LOCAL-00001" summary="Gjort alla filer.">
       <option name="closed" value="true" />
@@ -159,7 +163,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716389432743</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Allt fungerar som det ska nu tror jag, det som jag är osäker på är om jag behöver minska metodlängden här också men då skulle jag behöver ta ut allt från main också, och om man måste ha if-satsen med args &gt; 0, från vad jag har sett används det bara om man skickar in det från terminalen?">
+      <option name="closed" value="true" />
+      <created>1716390284907</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1716390284907</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,17 +188,7 @@
     <MESSAGE value="Klar med det mesta?" />
     <MESSAGE value="Ändrade plats på några saker, fixade en substring så att det faktiskt bara blir numret efter operations tecknet, försöker fortfarande ändra några saker men tar en paus." />
     <MESSAGE value="Flyttade all initialisering utanför looparna för att inte göra om anslutningen om och om igen, fungerande inte förra gången jag prövade men det vara för att jag glömde att ändra på både, nu fungerar det. Håller på fixa differensen och kanske double ifall man delar t.ex 3 med 2." />
-    <option name="LAST_COMMIT_MESSAGE" value="Flyttade all initialisering utanför looparna för att inte göra om anslutningen om och om igen, fungerande inte förra gången jag prövade men det vara för att jag glömde att ändra på både, nu fungerar det. Håller på fixa differensen och kanske double ifall man delar t.ex 3 med 2." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Yassin_Server/src/NetworkingServer.java</url>
-          <line>3</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Allt fungerar som det ska nu tror jag, det som jag är osäker på är om jag behöver minska metodlängden här också men då skulle jag behöver ta ut allt från main också, och om man måste ha if-satsen med args &gt; 0, från vad jag har sett används det bara om man skickar in det från terminalen?" />
+    <option name="LAST_COMMIT_MESSAGE" value="Allt fungerar som det ska nu tror jag, det som jag är osäker på är om jag behöver minska metodlängden här också men då skulle jag behöver ta ut allt från main också, och om man måste ha if-satsen med args &gt; 0, från vad jag har sett används det bara om man skickar in det från terminalen?" />
   </component>
 </project>

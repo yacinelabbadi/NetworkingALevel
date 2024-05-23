@@ -71,28 +71,28 @@ public class NetworkingServer {
                     secondNumber = Double.parseDouble(clientMessage.substring(operationPosition+1));
                     answer = firstNumber + secondNumber;
 
-                    response = "Summan av " + clientMessage + " är " + answer;
-                } else if (clientMessage.contains("-")) {
-                    operationPosition = clientMessage.indexOf("-");
-                    firstNumber = Double.parseDouble(clientMessage.substring(0, operationPosition));
-                    secondNumber = Double.parseDouble(clientMessage.substring(operationPosition+1));
-                    answer = firstNumber - secondNumber;
-
-                    response = "Differensen av " + clientMessage + " är " + answer;
+                    response = "The sum of " + clientMessage + " is " + answer;
                 } else if (clientMessage.contains("*")) {
                     operationPosition = clientMessage.indexOf("*");
                     firstNumber = Double.parseDouble(clientMessage.substring(0, operationPosition));
                     secondNumber = Double.parseDouble(clientMessage.substring(operationPosition+1));
                     answer = firstNumber * secondNumber;
 
-                    response = "Produkten av " + clientMessage + " är " + answer;
+                    response = "The product of " + clientMessage + " is " + answer;
                 } else if (clientMessage.contains("/")) {
                     operationPosition = clientMessage.indexOf("/");
                     firstNumber = Double.parseDouble(clientMessage.substring(0, operationPosition));
                     secondNumber = Double.parseDouble(clientMessage.substring(operationPosition+1));
                     answer = firstNumber / secondNumber;
 
-                    response = "Kvoten av " + clientMessage + " är " + answer;
+                    response = "The quotient of " + clientMessage + " is " + answer;
+                } else if (clientMessage.contains("-")) {
+                    operationPosition = clientMessage.indexOf("-");
+                    firstNumber = Double.parseDouble(clientMessage.substring(0, operationPosition));
+                    secondNumber = Double.parseDouble(clientMessage.substring(operationPosition+1));
+                    answer = firstNumber - secondNumber;
+
+                    response = "The difference of " + clientMessage + " is " + answer;
                 } else {
                     response = "Instructions were not followed, please try again.";
                 }

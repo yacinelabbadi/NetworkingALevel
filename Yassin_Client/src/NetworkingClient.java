@@ -30,7 +30,7 @@ public class NetworkingClient {
         // While loop for user sending and receiving messages to/from server
         while (true) {
 
-            System.out.println("Write a simple math problem only using numbers and operation sings" +
+            System.out.println("Write a simple math problem only using numbers and operation signs" +
                     ", like '1+1', or write bye to exit the program");
 
             // Reads in user message and sends to server
